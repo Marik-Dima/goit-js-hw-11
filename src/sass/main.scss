@@ -1,0 +1,221 @@
+$accent-color: #1f9ede;
+$main-bg-color: #c9cfdf;
+$secondary-bg-color:#657a97;
+$tertiary-bg-color:#2c3032;
+$main-font-color: #e9edf8;
+$search-font-color: #2b4f71;
+$main-border-color: #2b4f71;
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+title {
+    display: none;
+}
+
+body {
+    font-family: 'Ubuntu', 'Roboto', 'Raleway', sans-serif;
+    color: #212121;
+    background-color: $main-bg-color;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 40px;
+}
+
+.header {
+    background-color: $secondary-bg-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 20px;
+    box-shadow: 0px 6px 8px -3px rgba(0, 0, 0, 0.31);
+    outline: 1px solid $tertiary-bg-color;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+// serch form style
+.search-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 185px;
+    width: 70%;
+
+    &__input {
+        font-family: 'Ubuntu';
+        font-size: 16px;
+        background: $main-bg-color;
+        border: none;
+        padding: 20px 49px 20px 22px;
+        height: 20px;
+        display: block;
+        color: $search-font-color;
+        max-width: 300px;
+        width: 100%;
+        transition: outline 0.55s;
+        outline: 1px solid $tertiary-bg-color;
+
+        &:focus {
+            transition: outline 0.55s;
+            outline: $accent-color solid 1px;
+        }
+
+        &:hover {
+            transition: outline 0.55s;
+            outline: $accent-color solid 1px;
+        }
+    }
+
+    &__button {
+        width: 31px;
+        height: 31px;
+        min-width: 31px;
+        cursor: pointer;
+        background: $tertiary-bg-color;
+        border: none;
+        justify-content: center;
+        align-items: center;
+        transition: outline 0.55s, background-color 0.55s;
+        display: flex;
+        position: relative;
+        right: 36px;
+        outline: none;
+
+        &__icon {
+            fill: $main-font-color;
+            transition: fill 0.55s;
+        }
+
+        &:hover {
+            transition: outline 0.55s, background-color 0.55s;
+            background-color: $accent-color;
+        }
+
+        &:hover .search-form__icon {
+            fill: $main-font-color;
+            transition: fill 0.55s;
+        }
+
+        &:focus {
+            transition: background-color 0.55s;
+            background-color: $accent-color;
+        }
+
+        &:focus .search-form__icon {
+            fill: $main-font-color;
+            transition: fill 0.55s;
+        }
+
+        &:placeholder-shown+&__icon {
+            cursor: auto;
+        }
+    }
+
+    &__icon {
+        fill: $main-font-color;
+        transition: fill 0.55s;
+    }
+}
+// gallery styles
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px 0 40px 0;
+    gap: 30px;
+    justify-content: center;
+ //gallery item
+    &__item {  
+        display: block;
+        position: relative;
+        box-shadow: 0px 5px 6px -1px rgba(0, 0, 0, 0.6);
+        -webkit-box-shadow: 0px 5px 6px -1px rgba(0, 0, 0, 0.6);
+        -moz-box-shadow: 0px 5px 6px -1px rgba(0, 0, 0, 0.6);
+        width: 400px;
+        height: 300px;
+        overflow: hidden;
+        transition: transform 0.2s ease-in-out;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        &:focus {
+            transform: scale(1.1);
+            outline: $accent-color 1px solid;
+        }
+    }
+
+    &__figure {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+
+        &:hover {
+            transition: transform 7s cubic-bezier(0.25, 0.1, 0.25, 1);
+            transform: scale3d(1.1, 1.1, 1.1);
+        }
+    }
+// information about element(pic)
+    &__figinfo {
+        width: 100%;
+        color: $main-font-color;
+        background-color: #00000080;
+        padding: 10px;
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        text-align: center;
+        line-height: 18px;
+    }
+
+    &__info {
+        font-family: Ubuntu;
+        font-size: 19px;
+        font-weight: 300;
+        line-height: 20px;
+    }
+}
+
+.load-more {
+    display: none;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    color: $main-font-color;
+    background: #2c3032;
+    border: none;
+    border-radius: 25px;
+    outline: 1px solid $accent-color;
+    margin: auto;
+    font-family: Ubuntu;
+    font-size: 20px;
+    transition: outline 0.25s, color 0.15s, scale 0.55s;
+    box-shadow: 0px 5px 6px -1px rgba(0, 0, 0, 0.6);
+
+    &:hover {
+        transition: outline 0.25s, color 0.15s, scale 0.55s;
+        outline: $accent-color solid 1px;
+        color: $accent-color;
+        scale: 1.05;
+    }
+
+    &:focus {
+        transition: outline 0.25s, color 0.15s, scale 0.55s;
+        outline: $accent-color solid 1px;
+        color: $accent-color;
+        scale: 1;
+    }
+}
